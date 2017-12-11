@@ -1,7 +1,6 @@
 import urllib.parse
 import sys
 class starturl:
-    #明星对应的搬运号uid
     hammal_uids = {
         '鹿晗': '6336553953',
         "易洋千玺": "6341399232",
@@ -54,7 +53,6 @@ class starturl:
         "Angelababy杨颖": "6341399993",
     }
 
-    #组装搜索起始的url
     def assemblUrl(self, website):
         search_url = []
         if website == 'bili' :

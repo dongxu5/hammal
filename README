@@ -1,0 +1,21 @@
+视频抓站服务(scrapy+you-get)
+
+启动脚本 cd bilibili;sh star_video.sh > star_video.log 2>&1 每天定时启动
+
+（一）scrapy部分：（scrapy crawlall >> star_video.log）
+
+		具体可以看下scrapy框架
+
+		通过定制spider抓取页面url等信息（xpath获取），存入json文件，如果需要扩展，可以针对start_urls做对应配置
+
+（二）you-get部分：（python3 main.py >> star_video.log）
+
+		这部分主要是根据URL下载视频或者图片（看you-get支持），通过微博视频接口进行上传
+
+		you-get直接拿的git源码，修改了其common.py（line:1416）里的异常退出（下载错误会直接exit），现在只raise Exception("download failed")，不退出
+
+		download.py 直接调用you-get
+
+		upload.py 封装上传接口
+
+PS：会有下载失败的临时文件需要清理
